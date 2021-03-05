@@ -1,6 +1,8 @@
 
-class Colour:
-
+class Text:
+    """
+    All the basic functions for outputting formatted text to the console
+    """
     def __init__(self):
         self._RESET = '\033[0m'
         self._BOLD = '\033[01m'
@@ -72,4 +74,4 @@ class Colour:
         print(format_str)
         return
 
-colour = Colour()
+colour = Text()

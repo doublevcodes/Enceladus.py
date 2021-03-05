@@ -1,9 +1,9 @@
-from .color import Colour
+from .text import Text
 
-__version__ = "0.0.1"
+__version__ = "0.0.2"
 
 __all__ = {
     'colour'
 }
 
-colour = Colour()
+text = Text()
