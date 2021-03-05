@@ -42,12 +42,29 @@ class Text:
         }
         return
 
-    def fancyprint(self, text, fg_colour = None, bg_colour = None, **modifiers):
-        if fg_colour is None or bg_colour is None:
-            if fg_colour is None:
-                fg_colour = ''
-            if bg_colour is None:
-                bg_colour = ''
+    def prettify(self, text: str, fg_colour: str = None, bg_colour: str = None, **modifiers: bool):
+        """
+        This function 'prettifies' any text you would like to output to the terminal\n\n
+        Three arguments are required:\n
+            - the text to format: str
+            - the foreground colour: str
+            - the background colour: str\n\n
+        Supported foreground colours are as follows:\n
+            default, black, red, green, orange, blue, purple, cyan, lightgrey, darkgrey, lightred, lightgreen, yellow, lightblue, pink, lightcyan
+        Supported background colours are as follows:\n
+            default, black, red, green, orange, blue, purple, cyan, lightgrey\n\n
+        Optional args (**modifiers) include:\n
+            - bold: Emboldens the text
+            - underline: Underlines the text
+            - disable: Puts less emphasis on the text
+            - reverse: Switches around foreground and background colours
+            - strikethrough: Adds a strikethrough through the text
+            - invisible: Makes text invisible and retains background colour
+        """
+        if fg_colour is None:
+            fg_colour = ''
+        if bg_colour is None or bg_colour == "default":
+            bg_colour = ''
         else:
             if fg_colour not in self._fg_colors:
                 raise NotImplementedError(f"This colour is not currently supported -> {fg_colour}")
@@ -68,10 +85,10 @@ class Text:
         except KeyError:
             pass
         for modifier in modifiers:
-            if modifier:
+            if modifiers[modifier]:
                 format_str += self.__getattribute__(f'_{modifier.upper()}')
         format_str += f'{text}{self._RESET}'
-        print(format_str)
-        return
+        return format_str
 
-colour = Text()
+    def type(self, text):
+        pass

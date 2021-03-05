@@ -7,7 +7,7 @@ README = (HERE / "README.md").read_text()
 
 setup(
     name="enceladus",
-    version="0.0.2",
+    version="0.0.4",
     description="A terminal toolkit by your side!",
     long_description=README,
     long_description_content_type="text/markdown",

@@ -1,9 +1,9 @@
 from .text import Text
 
-__version__ = "0.0.2"
+__version__ = "0.0.4"
 
 __all__ = {
-    'colour'
+    'text'
 }
 
 text = Text()
